@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  audiobookshelf:
+    image: ghcr.io/advplyr/audiobookshelf:latest
+    container_name: bookshelf
+    environment:
+      - AUDIOBOOKSHELF_UID=1000
+      - AUDIOBOOKSHELF_GID=1000
+    ports:
+      - 13378:80
+    volumes:
+      - /Tank/MEDIA/audiobooks:/audiobooks
+      - /Tank/MEDIA/podcasts:/podcasts
+      - /Tank/qxzero/bookshelf/config:/config
+      - /Tank/qxzero/bookshelf/config:/metadata
